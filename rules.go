@@ -31,10 +31,10 @@ func ruleGenerate(r *http.Request) []string {
 	if r.URL.Query().Get("icmptype") != "" {
 		specEnd = append(specEnd, "--icmp-type", r.URL.Query().Get("icmptype"))
 	}
-	if vars["iface_in"] != "*" {
+	if vars["iface_in"] != "none" {
 		specEnd = append(specEnd, "-i", vars["iface_in"])
 	}
-	if vars["iface_out"] != "*" {
+	if vars["iface_out"] != "none" {
 		specEnd = append(specEnd, "-o", vars["iface_out"])
 	}
 	srcRange := strings.Contains(vars["source"], "-")
